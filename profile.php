@@ -79,7 +79,7 @@ $page = "profile";
 							if (isset($user)):
 							if ($user["username"] == $profile["username"]):
 						?>
-							<a href="/settings/account">
+							<a href="/settings">
 								<div class="button greyButton">Settings</div>
 							</a>
 						<?php else: ?>

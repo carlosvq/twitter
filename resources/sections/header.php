@@ -64,7 +64,7 @@
 															</li>
 															<?php print "</a>";?>
 															<hr>
-															<?php if (preg_match("/^settings\/.*/", getPageName()) === 0) {print '<a href="/settings/account">'; }?>
+															<?php if (preg_match("/^settings\/.*/", getPageName()) === 0) {print '<a href="/settings">'; }?>
 																<li>
 																	<div class="regularItem">Settings</div>
 																</li>

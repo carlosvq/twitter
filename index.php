@@ -4,7 +4,7 @@ require_once("resources/functions/data.php");
 
 $session = checkSession();
 if ($session === false) {
-	header("Location: login");
+	header("Location: /login");
 	die();
 }
 if (getPageName() == "index.php") {

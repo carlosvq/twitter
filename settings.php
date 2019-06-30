@@ -8,18 +8,6 @@ if ($session === false) {
 	die();
 }
 
-if (isset($_GET["setting"])) {
-	$url = getPageName();
-	if (preg_match("/^settings\.php\?setting\=.*/", $url)) {
-		$setting = explode("=", $url)[1];
-		header("Location: /settings/" . $setting);
-		die();
-	}
-} else {
-	header("Location: /settings/account");
-	die();
-}
-
 $user = getUserInfo($_SESSION["userID"]);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -175,21 +163,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					</div>
 					<div id="settingsCategoryWrapper">
 						<ul id="settingsCategories">
-							<?php if ($_GET["setting"] !== "account") { print '<a href="account">'; }?>
+							<?php if ($_GET["setting"] !== "account") { print '<a href="?setting=account">'; }?>
 								<li <?php if ($_GET["setting"] == "account") { print 'class="selected"'; } ?>>
 									Account
 									<i class="fas fa-arrow-right"></i>
 								</li>
 							<?php if ($_GET["setting"] !== "account") { print '</a>'; }?>
 
-							<?php if ($_GET["setting"] !== "images") { print '<a href="images">'; }?>
+							<?php if ($_GET["setting"] !== "images") { print '<a href="?setting=images">'; }?>
 								<li <?php if ($_GET["setting"] == "images") { print 'class="selected"'; } ?>>
 									Images
 									<i class="fas fa-arrow-right"></i>
 								</li>
 							<?php if ($_GET["setting"] !== "images") { print '</a>'; }?>
 
-							<?php if ($_GET["setting"] !== "password") { print '<a href="password">'; }?>
+							<?php if ($_GET["setting"] !== "password") { print '<a href="?setting=password">'; }?>
 								<li class="last <?php if ($_GET["setting"] == "password") { print "selected"; } ?>">
 									Password
 									<i class="fas fa-arrow-right"></i>
@@ -247,7 +235,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 						<?php if ($_GET["setting"] == "account"): ?>
 
 							<div class="settingsContentWrapper">
-								<form action="/settings/<?php print $_GET["setting"];?>" method="post" id="accountChanges">
+								<form action="/settings?setting=account" method="post" id="accountChanges">
 									<input type="text" hidden>
 									<input type="password" hidden>
 									<input type="text" hidden name="settingType" value="account">
@@ -287,7 +275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 						<?php elseif ($_GET["setting"] == "images"): ?>
 
-							<form action="/settings/images" method="post" id="imagesForm" enctype="multipart/form-data">
+							<form action="/settings?setting=images" method="post" id="imagesForm" enctype="multipart/form-data">
 								<input type="text" hidden name="settingType" value="images">
 								<div class="settingsContentWrapper">
 									<div class="settingsSubTitle">Profile image</div>
@@ -331,7 +319,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 						<?php elseif ($_GET["setting"] == "password"):?>
 
-							<form action="/settings/password" method="post" id="passwordForm">
+							<form action="/settings?setting=password" method="post" id="passwordForm">
 								<div class="settingsContentWrapper">
 									<input type="text" hidden>
 									<input type="password" hidden>

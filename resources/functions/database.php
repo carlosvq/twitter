@@ -1,6 +1,6 @@
 <?php
 
-define("SERVER", "localhost");
+define("SERVER", "lemp-mariadb");
 define("USERNAME", "root");
 define("PASSWORD", "root");
 define("DATABASE", "twitter");

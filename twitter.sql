@@ -82,7 +82,7 @@ CREATE TABLE `tweets` (
   `tweet_id` varchar(255) NOT NULL,
   `content` varchar(140) NOT NULL,
   `author_id` varchar(255) NOT NULL,
-  `reply_id` varchar(255) NOT NULL,
+  `reply_id` varchar(255),
   `replies` bigint(20) NOT NULL DEFAULT '0',
   `favourites` int(11) NOT NULL DEFAULT '0',
   `published` datetime NOT NULL DEFAULT NOW()

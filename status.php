@@ -50,7 +50,7 @@ $author = getUserInfo($tweet["author_id"]);
 										if (isset($user)):
 										if ($user["username"] == $author["username"]):
 									?>
-										<a href="/settings/account">
+										<a href="/settings">
 											<div class="button greyButton">Settings</div>
 										</a>
 									<?php else: ?>
